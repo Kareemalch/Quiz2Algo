@@ -9,18 +9,24 @@ class Solution:
         for u, v, w in edges:
             dist[u][v] = dist[v][u] = w
 
-        # Floyd-Warshall: try every city k as a middle stop
+        # Floyd-Warshall: This part finds the shortest distance between every pair of cities
         for k in range(n):
             for i in range(n):
                 for j in range(n):
                     dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
 
+        
+        best_city = 0
+        best_count = n
 
-        best_city, best_count = 0, n
         for i in range(n):
-            count = sum(d <= distanceThreshold for d in dist[i]) - 1  # -1 skips itself
-            if count <= best_count:
-                best_city, best_count = i, count
+            count = 0
+            for j in range(n):
+                if i != j and dist[i][j] <= distanceThreshold:  # skip itself
+                    count += 1
 
+            if count <= best_count:
+                best_city = i
+                best_count = count
 
         return best_city
