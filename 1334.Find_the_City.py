@@ -15,7 +15,7 @@ class Solution:
                 for j in range(n):
                     dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
 
-        
+        # Count reachable cities, keep the smallest (ties go to the bigger number)
         best_city = 0
         best_count = n
 
