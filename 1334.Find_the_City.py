@@ -15,8 +15,12 @@ class Solution:
                 for j in range(n):
                     dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
 
-        # Pick the city with the fewest reachable cities 
+
         best_city, best_count = 0, n
+        for i in range(n):
+            count = sum(d <= distanceThreshold for d in dist[i]) - 1  # -1 skips itself
+            if count <= best_count:
+                best_city, best_count = i, count
 
 
         return best_city
