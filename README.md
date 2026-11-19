@@ -1,1 +1,3 @@
-# Quiz2Algo
+class Solution:
+    def minCostConnectPoints(self, points: list[list[int]]) -> int:
+        
