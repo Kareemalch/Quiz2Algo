@@ -1,12 +1,14 @@
 class Solution:
     def minCostConnectPoints(self, points: list[list[int]]) -> int:
+        if((1 <= len(points) or len(points) <= 1000) is False):
+            return -1
         mincost = 0
         edges = []
         for i in range(len(points)):
             xi, yi = points[i][0], points[i][1]
             print(i)
-            for j  in range(len(points)-1):
-                if(i == j):
+            for j  in range(len(points)):
+                if(i == j or -10**6 > xi or -10**6 > yi or 10**6 < xi or 10**6 <yi):
                     continue
                 else:
                     xj, yj = points[j][0], points[j][1]
