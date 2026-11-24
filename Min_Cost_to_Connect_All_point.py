@@ -6,7 +6,6 @@ class Solution:
         edges = []
         for i in range(len(points)):
             xi, yi = points[i][0], points[i][1]
-            print(i)
             for j  in range(len(points)):
                 if(i == j or -10**6 > xi or -10**6 > yi or 10**6 < xi or 10**6 <yi):
                     continue
